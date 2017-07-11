@@ -1,0 +1,7 @@
+#Tue Jul 11 17:10:08 IST 2017
+base.0=F\:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_cfd1ac71dc77324e1d3fec990b352155c568fd44
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=F\:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_54331b830b4bcc539921e3b14653f1d96eb34fdc\\classes.dex
+base.1=F\:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_54331b830b4bcc539921e3b14653f1d96eb34fdc
+file.0=F\:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_cfd1ac71dc77324e1d3fec990b352155c568fd44\\classes.dex
