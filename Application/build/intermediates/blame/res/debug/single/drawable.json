@@ -40,6 +40,10 @@
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\uvv_progress_rotate.xml",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable\\uvv_progress_rotate.xml"
+    },
+    {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
@@ -54,6 +58,10 @@
     {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\82126898518cf8db4d54db345f26643d6a29b4a7\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
@@ -84,12 +92,24 @@
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\uvv_star_play_progress_seek.xml",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable\\uvv_star_play_progress_seek.xml"
+    },
+    {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\82126898518cf8db4d54db345f26643d6a29b4a7\\output\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\82126898518cf8db4d54db345f26643d6a29b4a7\\output\\res\\drawable\\design_fab_background.xml"
     },
     {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",

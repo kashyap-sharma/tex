@@ -83,7 +83,7 @@
         android:id="@+id/buttonDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/download"
+        android:text="Download"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 

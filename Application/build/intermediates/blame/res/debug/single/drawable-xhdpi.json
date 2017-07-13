@@ -1,10 +1,70 @@
 [
     {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_player_scale_btn.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_player_scale_btn.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_back_btn.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_back_btn.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_on_error.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_on_error.png"
+    },
+    {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
         "source": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_player_player_btn.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_player_player_btn.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_itv_player_play.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_itv_player_play.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_seek_dot.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_seek_dot.png"
+    },
+    {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_info.png",
         "source": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\src\\main\\res\\drawable-xhdpi\\ic_action_info.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_volume_btn.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_volume_btn.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_common_ic_loading_icon.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_common_ic_loading_icon.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\seek_thumb_pressed.png",
+        "source": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\src\\main\\res\\drawable-xhdpi\\seek_thumb_pressed.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\seek_thumb_normal.png",
+        "source": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\src\\main\\res\\drawable-xhdpi\\seek_thumb_normal.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_play_vb_bg_progress.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_play_vb_bg_progress.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_play_vb_bg.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_play_vb_bg.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\seek_thumb_disabled.png",
+        "source": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\src\\main\\res\\drawable-xhdpi\\seek_thumb_disabled.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_stop_btn.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_stop_btn.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\uvv_star_zoom_in.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\788cea84bc87e11759473d73b04add1b3186a951\\output\\res\\drawable-xhdpi\\uvv_star_zoom_in.png"
     }
 ]

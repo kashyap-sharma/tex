@@ -1,26 +1,20 @@
 package com.example.android.camera2video;
 
-import android.app.ProgressDialog;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Bundle;
-
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleAdapter.ViewBinder;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
@@ -133,7 +127,7 @@ public class DownloadActivity extends ListActivity {
                 "checked", "fileName", "progress", "bytes", "state", "percentage"
         },
                 new int[] {
-                        R.id.radioButton1, R.id.videoView, R.id.progressBar1, R.id.textBytes,
+                        R.id.radioButton1, R.id.textFileName, R.id.progressBar1, R.id.textBytes,
                         R.id.textState, R.id.textPercentage
                 });
         simpleAdapter = new SimpleAdapter(this, transferRecordMaps,
@@ -183,14 +177,28 @@ public class DownloadActivity extends ListActivity {
         getListView().setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-                if (checkedIndex != pos) {
-                    transferRecordMaps.get(pos).put("checked", true);
-                    if (checkedIndex >= 0) {
-                        transferRecordMaps.get(checkedIndex).put("checked", false);
-                    }
-                    checkedIndex = pos;
-                    updateButtonAvailability();
-                    simpleAdapter.notifyDataSetChanged();
+//                if (checkedIndex != pos) {
+//                    transferRecordMaps.get(pos).put("checked", true);
+//                    if (checkedIndex >= 0) {
+//                        transferRecordMaps.get(checkedIndex).put("checked", false);
+//                    }
+//                    checkedIndex = pos;
+//                    updateButtonAvailability();
+//                    simpleAdapter.notifyDataSetChanged();
+//                }
+               Log.i("Myapp","f"+transferRecordMaps.get(pos));
+                HashMap<String, Object> map = transferRecordMaps.get(pos);
+                if(map.containsKey("state")&&map.get("state").toString().equals("COMPLETED"))
+                {
+                        String file_name = (String) map.get("fileName");
+                        Log.i("Myapp", "f" + file_name);
+                        Intent i = new Intent(DownloadActivity.this,Player.class);
+                        i.putExtra("file_name",file_name);
+                        startActivity(i);
+                }
+                else
+                {
+                    Toast.makeText(DownloadActivity.this,"File not downloaded",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -337,7 +345,7 @@ public class DownloadActivity extends ListActivity {
     private void beginDownload(String key) {
         // Location to download files from S3 to. You can choose any accessible
         // file.
-        File file = new File("/storage/emulated/0/Android/data/com.example.android.camera2video/files_s3/" + key);
+        File file = new File("/storage/emulated/0/Android/data/com.example.android.camera2video/","files_s3/" + key);
 
         // Initiate the download
         TransferObserver observer = transferUtility.download(Constants.BUCKET_NAME, key, file);
@@ -407,7 +415,6 @@ public class DownloadActivity extends ListActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent =new Intent(this,CameraActivity.class);
-        startActivity(intent);
+
     }
 }

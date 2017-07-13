@@ -95,8 +95,8 @@ public class DownloadSelectionActivity extends ListActivity {
         @Override
         protected void onPreExecute() {
             dialog = ProgressDialog.show(DownloadSelectionActivity.this,
-                    getString(R.string.refreshing),
-                    getString(R.string.please_wait));
+                    "Refreshing",
+                    "Please wait");
         }
 
         @Override

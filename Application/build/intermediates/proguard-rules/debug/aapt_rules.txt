@@ -92,8 +92,11 @@
 # view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:32
 -keep class android.support.v7.widget.ViewStubCompat { <init>(...); }
 
-# view AndroidManifest.xml #generated:54
+# view AndroidManifest.xml #generated:57
 -keep class com.amazonaws.mobileconnectors.s3.transferutility.TransferService { <init>(...); }
+
+# view AndroidManifest.xml #generated:86
+-keep class com.android.tools.fd.runtime.InstantRunContentProvider { <init>(...); }
 
 # view res/layout/squarecamera__fragment_camera.xml #generated:8
 -keep class com.desmond.squarecamera.SquareCameraPreview { <init>(...); }
@@ -102,30 +105,41 @@
 # view res/layout/fragment_camera2_video.xml #generated:21
 -keep class com.example.android.camera2video.AutoFitTextureView { <init>(...); }
 
-# view AndroidManifest.xml #generated:44
+# view AndroidManifest.xml #generated:45
 -keep class com.example.android.camera2video.CameraActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:64
+# view AndroidManifest.xml #generated:75
 -keep class com.example.android.camera2video.CropnUpload { <init>(...); }
 
-# view AndroidManifest.xml #generated:61
+# view AndroidManifest.xml #generated:66
 -keep class com.example.android.camera2video.DownloadActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:63
+# view AndroidManifest.xml #generated:71
 -keep class com.example.android.camera2video.DownloadSelectionActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:58
+# view AndroidManifest.xml #generated:61
 -keep class com.example.android.camera2video.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:70
+# view AndroidManifest.xml #generated:44
+-keep class com.example.android.camera2video.Player { <init>(...); }
+
+# view AndroidManifest.xml #generated:81
 -keep class com.example.android.camera2video.VideoViewActivity { <init>(...); }
 
+# view res/layout/activity_camera.xml #generated:28
+# view res/layout/activity_camera.xml #generated:39
 # view res/layout/activity_main2.xml #generated:32
 # view res/layout/activity_main2.xml #generated:48
 -keep class com.example.android.camera2video.customComps.Fontasm { <init>(...); }
 
 # view res/layout/content_upload.xml #generated:16
 -keep class com.example.android.camera2video.customComps.RangeSeekBar { <init>(...); }
+
+# view res/layout/player.xml #generated:21
+-keep class com.universalvideoview.UniversalMediaController { <init>(...); }
+
+# view res/layout/player.xml #generated:13
+-keep class com.universalvideoview.UniversalVideoView { <init>(...); }
 
 # onClick res/layout/activity_main.xml #generated:8
 -keepclassmembers class * { *** fetchFileFromS3(...); }

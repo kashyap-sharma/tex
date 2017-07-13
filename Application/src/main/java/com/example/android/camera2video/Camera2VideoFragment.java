@@ -138,6 +138,7 @@ public class Camera2VideoFragment extends Fragment
     private Button mButtonVideo;
     FrameLayout fm1, fm;
     RelativeLayout parent;
+    MediaMetadataRetriever retriever;
 
     /**
      * A reference to the opened {@link android.hardware.camera2.CameraDevice}.
@@ -322,7 +323,7 @@ public class Camera2VideoFragment extends Fragment
         fm1=(FrameLayout)view.findViewById(R.id.custm1);
         fm=(FrameLayout)view.findViewById(R.id.custm);
         parent=(RelativeLayout) view.findViewById(R.id.parent);
-
+        progressDialog = new ProgressDialog(getActivity());
         mButtonVideo.setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
 
@@ -360,6 +361,7 @@ public class Camera2VideoFragment extends Fragment
     @Override
     public void onResume() {
         super.onResume();
+
         startBackgroundThread();
         if (mTextureView.isAvailable()) {
             openCamera(mTextureView.getWidth(), mTextureView.getHeight());
@@ -370,6 +372,7 @@ public class Camera2VideoFragment extends Fragment
 
     @Override
     public void onPause() {
+     //   progressDialog.dismiss();
         closeCamera();
         stopBackgroundThread();
         super.onPause();
@@ -381,6 +384,7 @@ public class Camera2VideoFragment extends Fragment
             case R.id.video: {
                 if (mIsRecordingVideo) {
                     stopRecordingVideo();
+                    mButtonVideo.setEnabled(false);
                 } else {
                     startRecordingVideo();
                 }
@@ -775,7 +779,7 @@ public class Camera2VideoFragment extends Fragment
                     Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Video saved: " + mNextVideoAbsolutePath);
 
-            cropIT(mNextVideoAbsolutePath);
+            cropIT(mNextVideoAbsolutePath,activity);
 
 
 
@@ -784,13 +788,16 @@ public class Camera2VideoFragment extends Fragment
         startPreview();
     }
 
-    private void cropIT(final String mNextVideoAbsolutePath) {
-        progressDialog = new ProgressDialog(getActivity());
+    private void cropIT(final String mNextVideoAbsolutePath,Activity ac) {
+
         progressDialog.setTitle(null);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Processing...");
+        if(progressDialog.isShowing()){
+            progressDialog.dismiss();
+        }
         progressDialog.show();
-        MediaMetadataRetriever retriever = new  MediaMetadataRetriever();
+         retriever = new  MediaMetadataRetriever();
         Bitmap bmp = null;
 
             retriever.setDataSource(mNextVideoAbsolutePath);
@@ -807,7 +814,7 @@ public class Camera2VideoFragment extends Fragment
 
 
        // String d2 = "-i "+mNextVideoAbsolutePath+" -vf scale=640:"+videosHeight+"*640:"+videosWidth+" /storage/emulated/0/Android/data/com.example.android.camera2video/files/nkt.mp4";
-        String d2 = "-i "+mNextVideoAbsolutePath+" -vf crop=640:640:0:400 -threads 5 -preset ultrafast -strict -2 "+mNextVideoAbsolutePatha+"";
+        String d2 = "-i "+mNextVideoAbsolutePath+" -vf crop=480:480:0:400 -threads 5 -preset ultrafast -strict -2 "+mNextVideoAbsolutePatha+"";
         Log.e("taken",d2);
         //final String[] cmd = "-i /storage/emulated/0/Android/data/com.example.android.camera2video/files/1499771538988.mp4 -vf crop=640:256:0:400 -threads 5 -preset ultrafast -strict -2 /storage/emulated/0/Android/data/com.example.android.camera2video/files/nkt.mp4".split(" ");
         //final String[] cmd = "-i "+mNextVideoAbsolutePath+" -vf crop=1080:1080:0:0 -threads 5 -preset ultrafast -strict -2 "+mNextVideoAbsolutePath).split(" ");
@@ -826,7 +833,9 @@ public class Camera2VideoFragment extends Fragment
                 public void onFailure() {}
 
                 @Override
-                public void onSuccess() {}
+                public void onSuccess() {
+
+                }
 
                 @Override
                 public void onFinish() {}
@@ -842,7 +851,9 @@ public class Camera2VideoFragment extends Fragment
 //                    Toast.makeText(getActivity(), "Successfully converted!",
 //                            Toast.LENGTH_LONG).show();
                     progressDialog.setMessage("Successfully converted!");
-                    progressDialog.dismiss();
+                    if (progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
                     File file1 = new File(mNextVideoAbsolutePath);
                     boolean deleted1 = file1.delete();
                     Log.e("okkz",deleted1+"");
@@ -870,6 +881,7 @@ public class Camera2VideoFragment extends Fragment
                     Toast.makeText(getActivity(), "Fail!"+ message,
                             Toast.LENGTH_LONG).show();
                     Log.e("message",message);
+                    progressDialog.dismiss();
                 }
 
                 @Override
@@ -881,14 +893,16 @@ public class Camera2VideoFragment extends Fragment
 
                 @Override
                 public void onFinish() {
-                    Toast.makeText(getActivity(), "Stopped!",
-                            Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                 }
             });
         } catch (FFmpegCommandAlreadyRunningException e) {
 
         }
     }
+
+
+
 
     /**
      * Compares two {@code Size}s based on their areas.

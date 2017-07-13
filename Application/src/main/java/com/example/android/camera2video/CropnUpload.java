@@ -29,6 +29,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.example.android.camera2video.customComps.Fontasm;
 import com.example.android.camera2video.customComps.RangeSeekBar;
+import com.example.android.camera2video.util.Static_Catelog;
 import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler;
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.github.hiteshsondhi88.libffmpeg.LoadBinaryResponseHandler;
@@ -359,6 +360,7 @@ public class CropnUpload extends AppCompatActivity implements View.OnClickListen
                         boolean deleted1 = file1.delete();
                         Log.e("okk",deleted1+"");
                         if (deleted1) {
+                            Static_Catelog.setStringProperty(getApplicationContext(),"trues","ok");
                             Intent intent=new Intent(getApplicationContext(),DownloadActivity.class);
                             startActivity(intent);
 

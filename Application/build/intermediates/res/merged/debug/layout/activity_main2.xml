@@ -31,7 +31,7 @@
                 android:layout_height="match_parent">
                 <com.example.android.camera2video.customComps.Fontasm
                     android:layout_width="48dp"
-                    android:text="&#xf100;"
+                    android:text="&#xf102;"
                     android:textSize="20sp"
                     android:gravity="center"
                     android:id="@+id/camera"
@@ -47,7 +47,7 @@
                     android:layout_height="match_parent" />
                 <com.example.android.camera2video.customComps.Fontasm
                     android:layout_width="48dp"
-                    android:text="&#xf101;"
+                    android:text="&#xf103;"
                     android:textSize="25sp"
                     android:paddingRight="10dp"
                     android:gravity="center"
