@@ -1,4 +1,4 @@
-#Tue Jul 11 13:50:06 IST 2017
+#Thu Jul 13 02:10:04 IST 2017
 base.0=F\:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3
 renamed.0=classes.dex
 file.0=F\:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3\\classes.dex

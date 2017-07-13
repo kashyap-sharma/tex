@@ -32,7 +32,7 @@ public class AutoFitTextureView extends TextureView {
     private int mCameraWidth = 0;
     private int mCameraHeight = 0;
     private boolean mSquarePreview = false;
-    private static final double ASPECT_RATIO = 4.0 / 4.0;
+    private static final double ASPECT_RATIO = 3.0 / 4.0;
     public AutoFitTextureView(Context context) {
         this(context, null);
     }
@@ -81,35 +81,5 @@ public class AutoFitTextureView extends TextureView {
         setMeasuredDimension(width, height);
     }
 
-    private Matrix setupTransform(int sw, int sh, int dw, int dh) {
-        Matrix matrix = new Matrix();
-        RectF src = new RectF(0, 0, sw, sh);
-        RectF dst = new RectF(0, 0, dw, dh);
-        RectF screen = new RectF(0, 0, dw, dh);
 
-        matrix.postRotate(-90, screen.centerX(), screen.centerY());
-        matrix.mapRect(dst);
-
-        matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER);
-        matrix.mapRect(src);
-
-        matrix.setRectToRect(screen, src, Matrix.ScaleToFit.FILL);
-        matrix.postRotate(-90, screen.centerX(), screen.centerY());
-
-        return matrix;
-    }
-
-    private Matrix squareTransform(int viewWidth, int viewHeight) {
-        Matrix matrix = new Matrix();
-
-        if (viewWidth < viewHeight) {
-           // MyLogger.log(AutoFitTextureView.class, "Horizontal");
-            matrix.setScale(1, (float) mCameraHeight / (float) mCameraWidth, viewWidth / 2, viewHeight / 2);
-        } else {
-           // MyLogger.log(AutoFitTextureView.class, "Vertical");
-            matrix.setScale((float) mCameraHeight / (float) mCameraWidth, 1, viewWidth / 2, viewHeight / 2);
-        }
-
-        return matrix;
-    }
 }

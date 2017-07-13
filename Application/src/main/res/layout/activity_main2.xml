@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusableInTouchMode="true"
+    tools:context="com.example.android.camera2video.CropnUpload">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetEnd="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.example.android.camera2video.customComps.Fontasm
+                    android:layout_width="48dp"
+                    android:text="&#xf100;"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:id="@+id/camera"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Crop and Upload"
+                    android:layout_centerInParent="true"
+                    android:layout_height="match_parent" />
+                <com.example.android.camera2video.customComps.Fontasm
+                    android:layout_width="48dp"
+                    android:text="&#xf101;"
+                    android:textSize="25sp"
+                    android:paddingRight="10dp"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/bell"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_upload" />
+
+
+</android.support.design.widget.CoordinatorLayout>

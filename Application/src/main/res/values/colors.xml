@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#353535</color>
+    <color name="colorPrimaryDark">#9b353535</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent1">#f3f3f3</color>
+    <color name="colorSelectedTab">#96BDEC</color>
+    <color name="colorBigText">#268AF5</color>
+    <color name="colorOldPrice">#DC6267</color>
+    <color name="colorNewPrice">#51AB78</color>
+</resources>

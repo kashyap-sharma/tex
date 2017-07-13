@@ -8,6 +8,6 @@ package com.github.hiteshsondhi88.libffmpeg;
 
 public final class R {
     public static final class string {
-        public static final int shipped_ffmpeg_version = 0x7f050027;
+        public static final int shipped_ffmpeg_version = 0x7f06003f;
     }
 }

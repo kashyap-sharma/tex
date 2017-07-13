@@ -1,5 +1,9 @@
 [
     {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\design_ic_visibility.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\82126898518cf8db4d54db345f26643d6a29b4a7\\output\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
+    },
+    {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
@@ -38,6 +42,10 @@
     {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
         "source": "C:\\Users\\kashy\\.android\\build-cache\\81adc38ed126cec090757a4777b1cfecaa910170\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\design_ic_visibility_off.png",
+        "source": "C:\\Users\\kashy\\.android\\build-cache\\82126898518cf8db4d54db345f26643d6a29b4a7\\output\\res\\drawable-xhdpi-v4\\design_ic_visibility_off.png"
     },
     {
         "merged": "F:\\AndroidProjects\\WebView\\Camera2Video1\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",

@@ -22,8 +22,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -55,8 +57,19 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferState;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.github.hiteshsondhi88.libffmpeg.FFmpegExecuteResponseHandler;
 import com.github.hiteshsondhi88.libffmpeg.LoadBinaryResponseHandler;
@@ -89,6 +102,17 @@ public class Camera2VideoFragment extends Fragment
             Manifest.permission.RECORD_AUDIO,
     };
 
+    ProgressDialog progressDialog;
+    AmazonS3 s3Client;
+    String bucket = "mybucketu";
+    String mNextVideoAbsolutePatha ="/storage/emulated/0/Android/data/com.example.android.camera2video/files/remove.mp4";
+
+    File uploadToS3 = new File(mNextVideoAbsolutePatha);
+    File downloadFromS3 ;
+                    //= new File("/storage/sdcard0/Pictures/Screenshot.png");
+    TransferUtility transferUtility;
+    List<String> listing;
+
     static {
         DEFAULT_ORIENTATIONS.append(Surface.ROTATION_0, 90);
         DEFAULT_ORIENTATIONS.append(Surface.ROTATION_90, 0);
@@ -112,6 +136,8 @@ public class Camera2VideoFragment extends Fragment
      * Button to record video
      */
     private Button mButtonVideo;
+    FrameLayout fm1, fm;
+    RelativeLayout parent;
 
     /**
      * A reference to the opened {@link android.hardware.camera2.CameraDevice}.
@@ -239,6 +265,7 @@ public class Camera2VideoFragment extends Fragment
      * @return The video size
      */
     private static Size chooseVideoSize(Size[] choices) {
+
         for (Size size : choices) {
             if (size.getWidth() == size.getHeight() * 4 / 3 && size.getWidth() <= 1080) {
                 return size;
@@ -247,6 +274,8 @@ public class Camera2VideoFragment extends Fragment
         Log.e(TAG, "Couldn't find any suitable video size");
         return choices[choices.length - 1];
     }
+
+
 
     /**
      * Given {@code choices} of {@code Size}s supported by a camera, chooses the smallest one whose
@@ -290,9 +319,43 @@ public class Camera2VideoFragment extends Fragment
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
         mButtonVideo = (Button) view.findViewById(R.id.video);
+        fm1=(FrameLayout)view.findViewById(R.id.custm1);
+        fm=(FrameLayout)view.findViewById(R.id.custm);
+        parent=(RelativeLayout) view.findViewById(R.id.parent);
+
         mButtonVideo.setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
+
     }
+
+
+    public void s3credentialsProvider(){
+
+        // Initialize the AWS Credential
+        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                getActivity().getApplicationContext(),
+                "ap-south-1:da1756b6-6c6a-4089-99c3-ec29a64bbe8c", // Identity pool ID
+                Regions.AP_SOUTH_1 // Region
+        );
+
+        createAmazonS3Client(credentialsProvider);
+    }
+
+    public void createAmazonS3Client(CognitoCachingCredentialsProvider
+                                             credentialsProvider){
+
+        // Create an S3 client
+        s3Client = new AmazonS3Client(credentialsProvider);
+
+        // Set the region of your S3 bucket
+        s3Client.setRegion(Region.getRegion(Regions.AP_SOUTH_1));
+    }
+
+    public void setTransferUtility(){
+
+        transferUtility = new TransferUtility(s3Client, getActivity().getApplicationContext());
+    }
+
 
     @Override
     public void onResume() {
@@ -452,9 +515,20 @@ public class Camera2VideoFragment extends Fragment
 
             int orientation = getResources().getConfiguration().orientation;
             if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+
                 mTextureView.setAspectRatio(mPreviewSize.getWidth(), mPreviewSize.getHeight(),true);
             } else {
+
                 mTextureView.setAspectRatio(mPreviewSize.getHeight(), mPreviewSize.getWidth(),true);
+                int w=mTextureView.getWidth();
+                int h=parent.getHeight();
+                int n=(h-w)/2;
+                Log.e("w"+w+"h"+h+"n"+n,"s");
+//                fm.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, n));
+//                fm1.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, n));
+                fm.setMinimumHeight(n);
+                fm1.setMinimumHeight(n);
             }
             configureTransform(width, height);
             mMediaRecorder = new MediaRecorder();
@@ -710,12 +784,15 @@ public class Camera2VideoFragment extends Fragment
         startPreview();
     }
 
-    private void cropIT(String mNextVideoAbsolutePath) {
-
+    private void cropIT(final String mNextVideoAbsolutePath) {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle(null);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Processing...");
+        progressDialog.show();
         MediaMetadataRetriever retriever = new  MediaMetadataRetriever();
         Bitmap bmp = null;
 
-        String mNextVideoAbsolutePatha ="/storage/emulated/0/Android/data/com.example.android.camera2video/files/remove.mp4";
             retriever.setDataSource(mNextVideoAbsolutePath);
             bmp = retriever.getFrameAtTime();
         int videosHeight= 0;
@@ -762,8 +839,25 @@ public class Camera2VideoFragment extends Fragment
             ffmpeg.execute(cmd, new FFmpegExecuteResponseHandler() {
                 @Override
                 public void onSuccess(String message) {
-                    Toast.makeText(getActivity(), "Successfully converted!",
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getActivity(), "Successfully converted!",
+//                            Toast.LENGTH_LONG).show();
+                    progressDialog.setMessage("Successfully converted!");
+                    progressDialog.dismiss();
+                    File file1 = new File(mNextVideoAbsolutePath);
+                    boolean deleted1 = file1.delete();
+                    Log.e("okkz",deleted1+"");
+                    Intent intent = new Intent(getActivity(),CropnUpload.class);
+                    intent.putExtra("path",mNextVideoAbsolutePatha);
+                    startActivity(intent);
+                    getActivity().finish();
+
+//                    TransferObserver transferObserver = transferUtility.upload(
+//                            bucket,     /* The bucket to upload to */
+//                            "Screenshot.png",    /* The key for the uploaded object */
+//                            uploadToS3       /* The file where the data to upload exists */
+//                    );
+//
+//                    transferObserverListener(transferObserver);
                 }
 
                 @Override
@@ -780,8 +874,9 @@ public class Camera2VideoFragment extends Fragment
 
                 @Override
                 public void onStart() {
-                    Toast.makeText(getActivity(), "Started!",
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getActivity(), "Started!",
+//                            Toast.LENGTH_LONG).show();
+                    progressDialog.setMessage("Started");
                 }
 
                 @Override
@@ -862,5 +957,8 @@ public class Camera2VideoFragment extends Fragment
         }
 
     }
+
+
+
 
 }
